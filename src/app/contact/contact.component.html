@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="login-form" [formGroup] = 'formContact'>
+    <mat-form-field>
+      <mat-label> Name </mat-label>
+      <input matInput type='text' placeholder="Your name" formControlName ='name'>
+      <mat-error *ngIf="formContact.get('name')?.errors?.required"> Name is required </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Email </mat-label>
+      <input matInput type='text' placeholder="Your email" formControlName ='email'>
+      <mat-error *ngIf="formContact.get('email')?.errors?.email && !formContact.get('email')?.errors?.required"> Please enter a valid email address </mat-error>
+      <mat-error *ngIf="formContact.get('email')?.errors?.required"> Email is required </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Mesage </mat-label>
+      <textarea matInput placeholder="Contact us!" formControlName ='mesage'> </textarea>
+      <mat-error *ngIf="formContact.get('mesage')?.errors?.required"> Mesage is required </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)='send()' [disabled]="formContact.invalid">Send</button>
+  </div>
+</div>
+
