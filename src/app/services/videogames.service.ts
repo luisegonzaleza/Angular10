@@ -26,4 +26,9 @@ export class VideogamesService {
 
     return this.http.post('https://super-rest.herokuapp.com/test/videogames', item);
   }
+
+  deleteVideoGame(id: string): Observable<any>{
+    return this.http.delete('https://super-rest.herokuapp.com/test/videogames/' + id);
+  }
+  
 }

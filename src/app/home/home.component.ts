@@ -43,4 +43,16 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['videogames'])
   }
 
+  deleteItem(id: string){
+    this.dataService.isLoading.next(true);
+    this.videoGame.deleteVideoGame(id).subscribe(() =>{
+      this.loadData();
+      this.dataService.message.next('Delete successful');
+      this.dataService.isLoading.next(false);
+    }, () => {
+      this.dataService.isLoading.next(false);
+      this.dataService.message.next('Problem with delete');
+    });
+  }
+
 }
