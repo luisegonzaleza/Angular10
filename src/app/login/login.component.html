@@ -12,7 +12,7 @@
       <mat-error *ngIf="formLogin.get('password')?.errors?.minlength && !formLogin.get('password')?.errors?.required"> password must be grather than 3 characters </mat-error>
       <mat-error *ngIf="formLogin.get('password')?.errors?.required"> Password is required </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)='login()' [disabled]="formLogin.invalid">Login</button>
+    <button mat-raised-button color="primary" (click)='login()' [disabled]="formLogin.invalid || disableButton">Login</button>
   </div>
 </div>
 

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="login-form" [formGroup] = 'formVideoGame'>
+    <h1>{{title}}</h1>
+    <mat-form-field>
+      <mat-label> Category </mat-label>
+      <input matInput type='text' placeholder="Category" formControlName ='category'>
+      <mat-error *ngIf="formVideoGame.get('category')?.errors?.required"> category is required </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Price </mat-label>
+      <input matInput type='number' placeholder="Price" formControlName ='price'>
+      <mat-error *ngIf="formVideoGame.get('price')?.errors?.required"> Price is required </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Console </mat-label>
+      <input matInput placeholder="Console" formControlName ='console'>
+      <mat-error *ngIf="formVideoGame.get('console')?.errors?.required"> Console is required </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)='save()' [disabled]="formVideoGame.invalid">Save</button>
+  </div>
+</div>
+
